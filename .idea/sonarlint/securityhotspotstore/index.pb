@@ -17,3 +17,5 @@ X
 testng.xml,5\2\522a7a4e21649af06297e31a9e33f13bb4fd3022
 ;
 Jenkinsfile,0\c\0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
+P
+ course-resources/cicd/jenkins.md,4\b\4b7ef3c99ab31d19944c64e9cc12670fbbdff0fe

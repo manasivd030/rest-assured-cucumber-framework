@@ -13,7 +13,7 @@ pipeline{
     stages {
         stage('Build') {
             steps {
-               // bat "mvn clean install -DskipTests"
+                // bat "mvn clean install -DskipTests"
                 bat "docker build -t rest-assured-cucumber ."
             }
         }
@@ -22,12 +22,12 @@ pipeline{
             steps {
                 script{
                     catchError(buildResult:'UNSTABLE',stageResult:'FAILURE') {
-                    withCredentials([usernamePassword(
-                            credentialsId:'REST_BOOKER_CREDS',
-                            usernameVariable:'RESTBOOKER_USERNAME',
-                            passwordVariable:'RESTBOOKER_PASSWORD'
+                        withCredentials([usernamePassword(
+                                credentialsId:'REST_BOOKER_CREDS',
+                                usernameVariable:'RESTBOOKER_USERNAME',
+                                passwordVariable:'RESTBOOKER_PASSWORD'
 
-                    )]) {
+                        )]) {
 
                             //bat "mvn test -P${profile}"
                             bat "docker run -v \$(pwd)/allure-results:/app/allure-results"+
@@ -40,10 +40,10 @@ pipeline{
 
         stage('Report') {
             steps{
-            script
-                    {
-                        allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
-                    }
+                script
+                        {
+                            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                        }
             }
 
         }
